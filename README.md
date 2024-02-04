@@ -1,10 +1,16 @@
-# HUBGAMES V2
+<p align="center"><img src="public\img\icon.png" alt="icon"></p>
+
+<h1 align="center">HUBGAMES V2</h1>
 
 ## About the Project
+
 ### 📦 Introduction
 This is very, **very** work in progress ok?
 
-## Astro Framework : W-I-T ?
+### ⭐ New Website
+Aviable @ [thehubgames.github.io/hubgamesv2](https://thehubgames.github.io/hubgamesv2)
+
+## Astro Framework : What Is That ?
 
 ### 🚀 Project Structure
 
@@ -45,4 +51,4 @@ All commands are run from the root of the project, from a terminal:
 
 ### 👀 Documentation
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+You can check the astro's documentation [right here](https://docs.astro.build).
