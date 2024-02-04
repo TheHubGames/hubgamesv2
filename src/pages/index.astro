@@ -1,0 +1,218 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro'
+---
+
+<Layout title="Welcome to Astro.">
+    <div id="github-releases">
+        <p id="load">Chargement de la dernière release depuis GitHub...</p>
+    </div>
+
+    <div class="w-max flex items-center justify-center btn btn-primary space-x-2 ml-2 mt-5">
+      <input type="checkbox" id="toggle" class="hidden" />
+      <label for="toggle" class="cursor-pointer flex items-center justify-center w-32 h-10 font-medium rounded-md shadow-md transition duration-300 ease-in-out">
+        <span class="mr-2">Afficher vos favoris</span>
+        <div class="relative w-12 h-4 bg-white rounded-full shadow-inner transition-transform duration-300 ease-in-out transform">
+          <div id="toggleBtn" class="absolute left-0 w-4 h-4 rounded-full shadow-md"></div>
+        </div>
+      </label>
+    </div>
+  
+    <div id="noFavoritesMessage" class="text-red-500 font-bold hidden top-1/2 left-1/2">
+      Vous n'avez pas de favori actuellement.
+    </div>
+    
+    <!-- List of games and app -->
+    <div id="game" class="mr-2 ml-2 place-items-center gap-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1">
+		<Card title="Morpion" body="Sur un plateau de jeu en 3x3 le premier à alligner trois de ses pions à gagné." href="Morpion" img_url="Morpion.jpg" img_alt="Morpion Image" />
+
+      <div class="container">
+        <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+          <figure><img class="object-cover aspect-square" src="https://hubgames.studio/content/images/Morpion.jpg" alt="Morpion Image" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Morpion</h2>
+                <p>Sur un plateau de jeu en 3x3 le premier à alligner trois de ses pions à gagné.</p>
+                <div class="card-actions justify-end">
+                  <a href="games/Morpion" class="btn btn-primary">Jouer</a>
+                  <div class="heart"></div>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+          <figure><img class="object-cover aspect-square" src="https://hubgames.studio/content/images/Weather.jpg" alt="Weather Image" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Weather</h2>
+                <p>Savoir toute les informations météo de l'instant de n'importe quelle ville.</p>
+                <div class="card-actions justify-end">
+                  <a href="games/Weather" class="btn btn-primary">Tester</a>
+                  <div class="heart"></div>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+          <figure><img class="object-cover aspect-square" src="https://hubgames.studio/content/images/ClickerGame.jpg" alt="Clicker Image" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Clicker Game</h2>
+                <p>Pour passer le temps en cliquant sur un bouton multicolor, mais battre son score et s'entrener à OSU</p>
+                <div class="card-actions justify-end">
+                  <a href="games/Clicker" class="btn btn-primary">Jouer</a>
+                  <div class="heart"></div>
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+          <figure><img class="object-cover aspect-square" src="https://hubgames.studio/content/images/CPS.jpg" alt="CPS Image" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Test de CPS</h2>
+                <p>Pour savoir ton nombre de clique par seconde, mais aussi pour flex.</p>
+                <div class="card-actions justify-end">
+                  <a href="games/CPS" class="btn btn-primary">Jouer</a>
+                  <div class="heart"></div>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+          <figure><img class="object-cover aspect-square" src="https://hubgames.studio/content/images/Tetris.jpg" alt="Tetris Image" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Tetris</h2>
+                <p>Empiler des blocs les uns sur les autres pour faire une ligne et les détruires pour éviter de monter dans les étages.</p>
+                <div class="card-actions justify-end">
+                  <a href="games/Tetris/" class="btn btn-primary">Jouer</a>
+                  <div class="heart"></div>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+          <figure><img class="object-cover aspect-square" src="https://hubgames.studio/content/images/FTN.jpg" alt="FTN Image" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Trouver le Nombre</h2>
+                <p>Seriez-vous capable de trouver le bon nombre ? Prouvez le nous en y jouant !</p>
+                <div class="card-actions justify-end">
+                  <a href="games/Find_the_number/" class="btn btn-primary">Jouer</a>
+                  <div class="heart"></div>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+          <figure><img class="object-cover aspect-square" src="https://hubgames.studio/content/images/Pong.jpg" alt="Pong Image" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Pong</h2>
+                <p>Deux barres, une boule, 5 manches. À vous de jouer !</p>
+                <div class="card-actions justify-end">
+                  <a href="games/Pong/" class="btn btn-primary">Jouer</a>
+                  <div class="heart"></div>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+          <figure><img class="object-cover aspect-square" src="https://hubgames.studio/content/images/Flappy-Bird.jpg" alt="Flappy-Bird Image" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Flappy-Bird</h2>
+                <p>Fait sauter ton oiseau entre des tuyaux pour faire le meilleur score, mais attention si tu tappes ça fait mal au front !!</p>
+                <div class="card-actions justify-end">
+                  <a href="games/Flappy-Bird/" class="btn btn-primary">Jouer</a>
+                  <div class="heart"></div>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+          <figure><img class="object-cover aspect-square" src="https://hubgames.studio/content/images/JDLV.jpg" alt="JDLV Image" /></figure>
+              <div class="card-body">
+                <h2 class="card-title">Jeu de la vie</h2>
+                <p>3 règles simples et pourtant la vie se déroule devant vos yeux. Alors à vous de créer !</p>
+                <div class="card-actions justify-end">
+                  <a href="games/Jeu_de_la_vie/" class="btn btn-primary">Jouer</a>
+                  <div class="heart"></div>
+                </div>
+              </div>
+        </div>
+      </div>
+      <div class="container">
+          <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+              <figure><img class="object-cover aspect-square" src="https://hubgames.studio/content/images/momerygamesimages.png" alt="memory game Image" /></figure>
+                  <div class="card-body">
+                    <h2 class="card-title">Jeux de mémoire</h2>
+                    <p>Trois niveaux de difficulter, réussirez-vous à trouver tout les émojis !</p>
+                    <div class="card-actions justify-end">
+                      <a href="games/Memory_game/" class="btn btn-primary">Jouer</a>
+                      <div class="heart"></div>
+                    </div>
+                  </div>
+          </div>
+      </div>
+      <div class="container">
+        <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+            <figure><img class="object-cover aspect-square" src="https://hubgames.studio/content/images/dino-google.jpg" alt="dino google Image" /></figure>
+                <div class="card-body">
+                  <h2 class="card-title">Dino Google</h2>
+                  <p>Le dino quand ta pas de connection mais la tu en as.</p>
+                  <div class="card-actions justify-end">
+                    <a href="games/Dino-Google/" class="btn btn-primary">Jouer</a>
+                    <div class="heart"></div>
+                  </div>
+                </div>
+          </div>
+      </div>
+    </div>
+
+ <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const repoOwner = 'TheHubGames'; // Remplacez par le nom du propriétaire du dépôt
+        const repoName = 'hub_games'; // Remplacez par le nom du dépôt
+
+        const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/releases/latest`;
+
+        fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération de la dernière release depuis GitHub');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const releasesDiv = document.getElementById('github-releases');
+            const md = window.markdownit();
+            document.getElementById('load').style.display = 'none';
+
+            const releaseContainer = document.createElement('div');
+            releaseContainer.classList.add('card', 'm-2', 'lg:card-side', 'bg-base-300', 'shadow-xl');
+
+            const firstFewLines = data.body.split('\n').slice(0, 8).join('\n'); // Récupère les 8 premières lignes
+            const releaseHTML = `<div class="lg:w-1/3 card-body">
+                <h2 class="news-title accent-content light:base-100 text-4xl-sm"><i class="fa-solid fa-bullhorn"></i> ${data.name}</h2>
+                <div class="news-text neutral-content">${md.render(firstFewLines)}</div>
+                <div class="card-actions justify-end">
+                  <a href="hub_source/MAJ/Derniere_maj" class="btn btn-primary" target="_blank">Lire la suite</a>
+                </div>
+            </div>
+            <!--<figure><img class="mr-6 rounded object-cover hidden lg:block" src="https://hubgames.studio/content/rsrc_maj/1.X.X/" alt="" /></figure>-->`;
+            releaseContainer.innerHTML = releaseHTML;
+
+            releasesDiv.appendChild(releaseContainer);
+        })
+        .catch(error => {
+            const releasesDiv = document.getElementById('github-releases');
+            releasesDiv.innerHTML = '<p>Erreur lors de la récupération de la dernière release depuis GitHub</p>';
+            console.error('Erreur lors de la récupération de la dernière release depuis GitHub', error);
+        });
+    });
+  </script>
+</Layout>
+
