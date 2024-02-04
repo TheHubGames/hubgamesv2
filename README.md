@@ -1,4 +1,4 @@
-<p align="center"><img src="public\img\icon.png" alt="icon"></p>
+<p align="center"><img src="https://wsrv.nl/?url=hubgames.studio/content/images/icon.png&w=300&h=300&fit=cover&mask=circle" alt="icon" height=200></p>
 
 <h1 align="center">HUBGAMES V2</h1>
 
