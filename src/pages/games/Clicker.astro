@@ -1,0 +1,47 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { clicker } from './clicker.js';
+import { loader } from './loader.js';
+---
+
+<Layout title="Morpion">
+
+<body class="bg-base-100">
+    <div id="loader">
+        <div id="loader-spinner"></div>
+        <p>Chargement en cours...</p>
+    </div>
+ 
+    <div id="nav"></div>
+    <main>
+        <div id="jeu-container">
+            <div id="jeu">
+                <div id="forme"></div>
+                <canvas id="gameCanvas"></canvas>
+            </div>
+            <a style="margin-top:15px;" id="GameStartIndicator">Cliquez sur le point pour démarrer</a>
+            <div id="tableau">
+                <p id="score">Score : <span>0</span></p>
+                <p id="best_score">Meilleur Score : <span>0</span></p>
+                <p id="chrono">Chrono : 30s</p>
+            </div>
+        </div>
+    </main>
+    
+    
+    <!-- La boîte modale (popup) -->
+    <div id="popup" class="modal">
+        <div class="modal-content">
+            <p id="instructions">Cliquez sur la forme bleue pour gagner des points.</p>
+            <button id="play-button" onclick="startGame()">Jouer</button>
+            <!-- <button id="return-button" onclick="returnToHub()">Retour au hub de jeu</button> -->
+        </div>
+    </div>
+    
+    <a id="return-button" class="btn btn-primary bottom-5 right-5 mb-5 p-2.5 text-lg border-0 cursor-pointer no-underline rounded-md" href="../../">Retour au hub de jeu</a>
+    
+    <div id="footer"></div>
+
+</body>
+
+</Layout>
