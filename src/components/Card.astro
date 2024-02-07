@@ -8,22 +8,20 @@ interface Props {
 const { img_url, img_alt ="Icone du jeu", title, body, href } = Astro.props;
 ---
 
-<div class="container">
-  <div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
-    <figure>
-      <img
-        class="object-cover aspect-square"
-        src={ img_url }
-        alt={ img_alt }
-      />
-    </figure>
-    <div class="card-body">
-      <h2 class="card-title">{ title }</h2>
-      <p>{ body }</p>
-      <div class="card-actions justify-end">
-        <a href={ href } class="btn btn-primary">Jouer</a>
-        <div class="heart"></div>
-      </div>
+<div class="mt-4 card w-80 bg-base-300 shadow-xl h-full">
+  <figure>
+    <img
+      class="object-cover aspect-square"
+      src={ img_url }
+      alt={ img_alt }
+    />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">{ title }</h2>
+    <p>{ body }</p>
+    <div class="card-actions justify-end">
+      <a href={ href } class="btn btn-primary">Jouer</a>
+      <div class="heart"></div>
     </div>
   </div>
 </div>
