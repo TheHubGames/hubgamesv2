@@ -3,144 +3,151 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="Morpion">
-
-<body class="bg-base-100">
+  <body class="bg-base-100">
     <div id="loader">
-        <div id="loader-spinner"></div>
-        <p>Chargement en cours...</p>
+      <div id="loader-spinner"></div>
+      <p>Chargement en cours...</p>
     </div>
- 
+
     <div id="nav"></div>
     <main>
-        <div id="jeu-container">
-            <div id="jeu">
-                <div id="forme"></div>
-                <canvas id="gameCanvas"></canvas>
-            </div>
-            <a style="margin-top:15px;" id="GameStartIndicator">Cliquez sur le point pour démarrer</a>
-            <div id="tableau">
-                <p id="score">Score : <span>0</span></p>
-                <p id="best_score">Meilleur Score : <span>0</span></p>
-                <p id="chrono">Chrono : 30s</p>
-            </div>
+      <div id="jeu-container">
+        <div id="jeu">
+          <div id="forme"></div>
+          <canvas id="gameCanvas"></canvas>
         </div>
+        <a style="margin-top:15px;" id="GameStartIndicator"
+          >Cliquez sur le point pour démarrer</a
+        >
+        <div id="tableau">
+          <p id="score">Score : <span>0</span></p>
+          <p id="best_score">Meilleur Score : <span>0</span></p>
+          <p id="chrono">Chrono : 30s</p>
+        </div>
+      </div>
     </main>
-    
-    
+
     <!-- La boîte modale (popup) -->
     <div id="popup" class="modal">
-        <div class="modal-content">
-            <p id="instructions">Cliquez sur la forme bleue pour gagner des points.</p>
-            <button id="play-button" onclick="startGame()">Jouer</button>
-            <!-- <button id="return-button" onclick="returnToHub()">Retour au hub de jeu</button> -->
-        </div>
+      <div class="modal-content">
+        <p id="instructions">
+          Cliquez sur la forme bleue pour gagner des points.
+        </p>
+        <button id="play-button" onclick="startGame()">Jouer</button>
+        <!-- <button id="return-button" onclick="returnToHub()">Retour au hub de jeu</button> -->
+      </div>
     </div>
-    
-    <a id="return-button" class="btn btn-primary bottom-5 right-5 mb-5 p-2.5 text-lg border-0 cursor-pointer no-underline rounded-md" href="../../">Retour au hub de jeu</a>
-    
+
+    <a
+      id="return-button"
+      class="btn btn-primary bottom-5 right-5 mb-5 p-2.5 text-lg border-0 cursor-pointer no-underline rounded-md"
+      href="../../">Retour au hub de jeu</a
+    >
+
     <div id="footer"></div>
+  </body>
 
-</body>
-
-<script is:inline>
+  <script is:inline>
     let score = 0;
     const scoreElement = document.querySelector("#score span");
     const bestScore = document.querySelector("#best_score span");
     const chronoElement = document.getElementById("chrono");
     const forme = document.getElementById("forme");
-    var gameStart = false
-    const gameIndicator = document.getElementById("GameStartIndicator")
+    var gameStart = false;
+    const gameIndicator = document.getElementById("GameStartIndicator");
 
-    if (localStorage.getItem("bestScore") == undefined || null){
-        localStorage.setItem("bestScore", 0)
-    }else{
-        bestScore.textContent = localStorage.getItem("bestScore")
+    if (localStorage.getItem("bestScore") == undefined || null) {
+      localStorage.setItem("bestScore", 0);
+    } else {
+      bestScore.textContent = localStorage.getItem("bestScore");
     }
 
     // Fonction pour démarrer le jeu
     function startGame() {
-        score = 0
-        scoreElement.textContent = score;
-        gameIndicator.style.visibility = "hidden"
-        gameStart = true
-        document.getElementById("popup").style.display = "none"; // Masquer la popup
-        document.getElementById("jeu").style.pointerEvents = "auto"; // Activer le jeu
-        deplacerForme(); // Démarrer le jeu en déplaçant la forme initiale
-        startCountdown(); // Démarrer le compte à rebours
+      score = 0;
+      scoreElement.textContent = score;
+      gameIndicator.style.visibility = "hidden";
+      gameStart = true;
+      document.getElementById("popup").style.display = "none"; // Masquer la popup
+      document.getElementById("jeu").style.pointerEvents = "auto"; // Activer le jeu
+      deplacerForme(); // Démarrer le jeu en déplaçant la forme initiale
+      startCountdown(); // Démarrer le compte à rebours
     }
 
     // Fonction pour afficher la popup
     function openPopup() {
-        document.getElementById("popup").style.display = "block";
-        document.getElementById("jeu").style.pointerEvents = "none"; // Désactiver le jeu
+      document.getElementById("popup").style.display = "block";
+      document.getElementById("jeu").style.pointerEvents = "none"; // Désactiver le jeu
     }
 
     // Fonction pour fermer la popup
     function closePopup() {
-        document.getElementById("popup").style.display = "none";
+      document.getElementById("popup").style.display = "none";
     }
 
     forme.addEventListener("click", () => {
-        if (gameStart){
-            score++;
-            scoreElement.textContent = score;
-            deplacerForme();
-        }else{
-            startGame()
-        }
+      if (gameStart) {
+        score++;
+        scoreElement.textContent = score;
+        deplacerForme();
+      } else {
+        startGame();
+      }
     });
 
     function deplacerForme() {
-        const jeu = document.getElementById("jeu");
-        const maxX = jeu.clientWidth - forme.clientWidth;
-        const maxY = jeu.clientHeight - forme.clientHeight;
-        const nouvelleX = Math.random() * maxX;
-        const nouvelleY = Math.random() * maxY;
-        forme.style.left = nouvelleX + "px";
-        forme.style.top = nouvelleY + "px";
-        forme.style.backgroundColor = getRandomColor();
+      const jeu = document.getElementById("jeu");
+      const maxX = jeu.clientWidth - forme.clientWidth;
+      const maxY = jeu.clientHeight - forme.clientHeight;
+      const nouvelleX = Math.random() * maxX;
+      const nouvelleY = Math.random() * maxY;
+      forme.style.left = nouvelleX + "px";
+      forme.style.top = nouvelleY + "px";
+      forme.style.backgroundColor = getRandomColor();
     }
 
     function getRandomColor() {
-        const letters = "0123456789ABCDEF";
-        let color = "#";
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
+      const letters = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
     }
 
     // Compte à rebours
     let tempsRestant = 30;
 
     function startCountdown() {
-        const chronoInterval = setInterval(() => {
-            tempsRestant--;
-            chronoElement.textContent = `Chrono : ${tempsRestant}s`;
-            if (tempsRestant === 0) {
-                clearInterval(chronoInterval);
-                alert("Temps écoulé ! Votre score final est : " + score);
+      openPopup();
+      const chronoInterval = setInterval(() => {
+        tempsRestant--;
+        chronoElement.textContent = `Chrono : ${tempsRestant}s`;
+        if (tempsRestant === 0) {
+          clearInterval(chronoInterval);
+          alert("Temps écoulé ! Votre score final est : " + score);
 
-                if(localStorage.getItem("bestScore") !== undefined){
-                    if(score > localStorage.getItem("bestScore")){
-                        localStorage.setItem("bestScore", score)
-                    }
-                }else{
-                    localStorage.setItem("bestScore", score)
-                }
-
-                gameStart = false
-                gameIndicator.style.visibility = "visible"
-                forme.setAttribute("style", "")
-                bestScore.textContent = localStorage.getItem("bestScore")
-                tempsRestant = 30
+          if (localStorage.getItem("bestScore") !== undefined) {
+            if (score > localStorage.getItem("bestScore")) {
+              localStorage.setItem("bestScore", score);
             }
-        }, 1000);
+          } else {
+            localStorage.setItem("bestScore", score);
+          }
+
+          gameStart = false;
+          gameIndicator.style.visibility = "visible";
+          forme.setAttribute("style", "");
+          bestScore.textContent = localStorage.getItem("bestScore");
+          tempsRestant = 30;
+        }
+      }, 1000);
     }
 
     function closeWarning() {
-        document.getElementById('warning').style.display = 'none';
-}
-</script>
+      document.getElementById("warning").style.display = "none";
+    }
 
+    startGame();
+  </script>
 </Layout>

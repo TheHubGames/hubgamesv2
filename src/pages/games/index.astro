@@ -34,7 +34,7 @@ import Card from "../../components/Card.astro";
   <!-- List of games and app -->
   <div
     id="game"
-    class="mr-2 ml-2 place-items-center gap-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 place-items-center">
+    class="mr-2 ml-2 place-items-center gap-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1">
 
     <Card
       title="Morpion"
@@ -135,7 +135,7 @@ import Card from "../../components/Card.astro";
     
   </div>
 
-  <script>
+  <script is:inline>
     document.addEventListener("DOMContentLoaded", function () {
       const repoOwner = "TheHubGames"; // Remplacez par le nom du propriétaire du dépôt
       const repoName = "hub_games"; // Remplacez par le nom du dépôt
